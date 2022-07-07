@@ -16,7 +16,7 @@
         crossorigin=""></script>
 
     <link rel="stylesheet" href="demo.css">
-
+    <!-- Leaflet Geoman 工具条 -->
     <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
     <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
 </head>
@@ -24,15 +24,15 @@
 <body>
     <div id="map"></div>
     <script>
-        //Add map
+        // 添加地图
         let map = L.map('map');
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
+        L.tileLayer('http://wprd0{s}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=7',
+            {
+                subdomains: '1234'
+            }).addTo(map);
+        // 设置观察点
         map.setView([39.909186, 116.397411], 10);
-
+        // 添加工具条
         map.pm.addControls({
             position: 'topright'
         });
