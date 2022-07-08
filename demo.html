@@ -7,19 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
 
     <link rel="stylesheet" href="demo.css">
 
 
     <script src="https://cdn.bootcss.com/proj4js/2.4.3/proj4.js"></script>
     <script src="https://cdn.bootcss.com/proj4leaflet/1.0.1/proj4leaflet.min.js"></script>
-    <script src='./node_modules/leaflet.chinatmsproviders/src/leaflet.ChineseTmsProviders.js'></script>
+    <script src='node_modules/leaflet.chinatmsproviders/src/leaflet.ChineseTmsProviders.js'></script>
+
+    <link rel="stylesheet" href="node_modules/leaflet-multicontrol/src/L.multiControl.css">
+    <script src="node_modules/leaflet-multicontrol/src/L.multiControl.js"></script>
 
     <!-- Leaflet Geoman 工具条 -->
-    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+    <link rel="stylesheet" href="node_modules/@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css" />
+    <script src="node_modules/@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.min.js"></script>
 </head>
 
 <body>
@@ -32,9 +35,11 @@
         map.setView([39.909186, 116.397411], 10);
         // 添加工具条
         map.pm.addControls({
-            position: 'topright'
+            position: 'topleft'
         });
 
+        const overlays = [];
+        const legend = L.multiControl(overlays, { position: 'topright', label: 'MultiControl' }).addTo(map);
     </script>
 </body>
 
